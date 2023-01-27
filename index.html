@@ -12,6 +12,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/overlays.css" />
+    <link rel="stylesheet" href="style/configuration.css" />
   </head>
   <body>
     <header id="main-header">
@@ -19,12 +21,13 @@
       <p>Built with HTML, CSS, JavaScript and - of course - lot love!</p>
     </header>
     <main>
-      <aside>
-        <h2>choose your name</h2>
+      <div id="backdrop"></div>
+      <aside class="modal" id="config-overlay">
+        <h2>Choose your name</h2>
         <form>
-          <div>
-            <label for="playerName"></label>
-            <input type="text" id="playerName" />
+          <div class="form-control">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName" name="playerName" />
           </div>
           <div>
             <button type="button" class="btn btn-alt">Cancel</button>
@@ -32,6 +35,7 @@
           </div>
         </form>
       </aside>
+
       <section id="game-configuration">
         <ol>
           <li>
