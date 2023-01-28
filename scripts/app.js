@@ -11,3 +11,4 @@ editPlayer2btn.addEventListener("click", openPlayerConfig);
 
 overlayCancelBtn.addEventListener("click", closeOverlay);
 backdrop.addEventListener("click", closeOverlay);
+
