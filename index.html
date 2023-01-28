@@ -29,12 +29,13 @@
       <aside class="modal" id="config-overlay">
         <h2>Choose your name</h2>
         <form>
-          <div class="form-control">
+          <div class="form-control" id="formControl">
             <label for="playerName">Player Name</label>
             <input type="text" id="playerName" name="playerName" />
           </div>
+          <p id="error"></p>
           <div>
-            <button type="button" class="btn btn-alt" id="overlayCancelBtn">
+            <button type="reset" class="btn btn-alt" id="overlayCancelBtn">
               Cancel
             </button>
             <button type="submit" class="btn">Confirm</button>
