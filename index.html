@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/overlays.css" />
     <link rel="stylesheet" href="style/configuration.css" />
-    <link rel="stylesheet" href="style/game.css">
+    <link rel="stylesheet" href="style/game.css" />
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+    <script src="scripts/app.js" defer></script>
   </head>
   <body>
     <header id="main-header">
@@ -31,7 +34,9 @@
             <input type="text" id="playerName" name="playerName" />
           </div>
           <div>
-            <button type="button" class="btn btn-alt">Cancel</button>
+            <button type="button" class="btn btn-alt" id="overlayCancelBtn">
+              Cancel
+            </button>
             <button type="submit" class="btn">Confirm</button>
           </div>
         </form>
@@ -44,7 +49,7 @@
               <h2>Player 1</h2>
               <h3>PLAYER NAME</h3>
               <p class="playerSymbol">X</p>
-              <button class="btn btn-alt">Edit</button>
+              <button class="btn btn-alt" id="editPlayer1btn">Edit</button>
             </article>
           </li>
           <li>
@@ -52,7 +57,7 @@
               <h2>Player 2</h2>
               <h3>PLAYER NAME</h3>
               <p class="playerSymbol">O</p>
-              <button class="btn btn-alt">Edit</button>
+              <button class="btn btn-alt" id="editPlayer2btn">Edit</button>
             </article>
           </li>
         </ol>
