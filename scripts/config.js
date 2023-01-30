@@ -1,4 +1,5 @@
-function openPlayerConfig() {
+function openPlayerConfig(event) {
+  editedPlayer = +event.target.dataset.playerid; //adding + sign in front changes string to integer
   playerConfigOverlay.style.display = "block";
   backdrop.style.display = "block";
 }
@@ -8,6 +9,7 @@ function closeOverlay() {
   error.textContent = "";
   playerConfigOverlay.style.display = "none";
   backdrop.style.display = "none";
+  document.getElementById("playerName").value = "" ;
 }
 
 function savePlayerConfig(event) {
@@ -18,6 +20,14 @@ function savePlayerConfig(event) {
   if (!enteredPlayerName) {
     formControl.classList.add("error");
     error.textContent = "Please enter a valid value";
-    return ;
+    return;
   }
+
+  const updatedPlayerData = document.getElementById(
+    "player-" + editedPlayer + "-data"
+  );
+  updatedPlayerData.children[1].textContent = enteredPlayerName ;
+
+  players[editedPlayer-1].name = enteredPlayerName ;
+  closeOverlay() ;
 }

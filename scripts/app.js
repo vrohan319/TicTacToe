@@ -1,3 +1,16 @@
+let editedPlayer = 0;
+
+const players = [
+  {
+    name: "",
+    symbol: "X",
+  },
+  {
+    name: "",
+    symbol: "O",
+  },
+];
+
 const overlayCancelBtn = document.getElementById("overlayCancelBtn");
 const formElement = document.querySelector("form");
 const error = document.getElementById("error");

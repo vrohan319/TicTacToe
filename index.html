@@ -46,19 +46,23 @@
       <section id="game-configuration">
         <ol>
           <li>
-            <article>
+            <article id="player-1-data">
               <h2>Player 1</h2>
               <h3>PLAYER NAME</h3>
               <p class="playerSymbol">X</p>
-              <button class="btn btn-alt" id="editPlayer1btn">Edit</button>
+              <button class="btn btn-alt" id="editPlayer1btn" data-playerid="1">
+                Edit
+              </button>
             </article>
           </li>
           <li>
-            <article>
+            <article id="player-2-data">
               <h2>Player 2</h2>
               <h3>PLAYER NAME</h3>
               <p class="playerSymbol">O</p>
-              <button class="btn btn-alt" id="editPlayer2btn">Edit</button>
+              <button class="btn btn-alt" id="editPlayer2btn" data-playerid="2">
+                Edit
+              </button>
             </article>
           </li>
         </ol>
@@ -74,7 +78,7 @@
         <ol id="game-board">
           <li></li>
           <li></li>
-          <li class="disable">X</li>
+          <li></li>
 
           <li></li>
           <li></li>
