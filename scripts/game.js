@@ -1,8 +1,27 @@
+function resetGameStatus() {
+  activePlayer = 0;
+  currentRound = 1;
+  isGameOver = false;
+  gameOverElement.firstElementChild.innerHTML =
+    "<h2>You won, <span id='winner-name'>PlayerName</span> !</h2>";
+  gameOverElement.style.display = "none";
+  let gameBoardIndex = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      gameData[i][j] = 0;
+      gameFieldElements[gameBoardIndex].textContent = "";
+      gameFieldElements[gameBoardIndex].classList.remove("disable");
+      gameBoardIndex++;
+    }
+  }
+}
+
 function startNewGame() {
-  //   if (players[0].name === "" || players[1].name === "") {
-  //     alert("Please enter valid player name for both the players!!");
-  //     return;
-  //   }
+  if (players[0].name === "" || players[1].name === "") {
+    alert("Please enter valid player name for both the players!!");
+    return;
+  }
+  resetGameStatus();
   activePlayerName.textContent = players[activePlayer].name;
   gameAreaElement.style.display = "block";
 }
@@ -17,6 +36,7 @@ function switchPlayer() {
 }
 
 function selectGameField(event) {
+  if (isGameOver) return;
   const selectedField = event.target;
 
   const selectedColumn = selectedField.dataset.col - 1;
@@ -33,14 +53,9 @@ function selectGameField(event) {
   //   console.log(gameData);
 
   const winnerId = checkForGameOver();
-  console.log(winnerId);
-  //   if (winnerId != 0) {
-
-  //     const x = document.getElementById("game-over");
-  //     x.style.display = "block";
-  //     document.getElementById("winner-name").textContent =
-  //       players[winnerId - 1].name;
-  //   }
+  if (winnerId != 0) {
+    gameOver(winnerId);
+  }
   currentRound++;
   switchPlayer();
 }
@@ -81,4 +96,15 @@ function checkForGameOver() {
   }
   if (currentRound == 9) return -1;
   return 0;
+}
+
+function gameOver(winnerId) {
+  isGameOver = true;
+  gameOverElement.style.display = "block";
+  if (winnerId > 0) {
+    const winnerName = players[winnerId - 1].name;
+    document.getElementById("winner-name").textContent = winnerName;
+  } else {
+    gameOverElement.firstElementChild.textContent = "It's a draw !!";
+  }
 }
